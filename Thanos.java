@@ -15,23 +15,21 @@ public class Thanos {
 
         // TODO 1 : Modify Hero to implements Comparable and sort by name (ascending)
 
-
-
-        Comparator<Hero> comparatorByName = new Comparator<Hero>() {
-            @Override
-            public int compare(Hero hero1, Hero hero2) {
-                return hero1.getName().compareTo(hero2.getName());
-            }
-        };
-
-        Collections.sort(heroes, comparatorByName );
+        Collections.sort(heroes);
 
         System.out.println("\nOrder by name:");
         showList(heroes);
 
         // TODO 2: Add a Comparator and sort by age (descending)
 
-        Collections.sort(heroes);
+        Comparator<Hero> comparatorByAge = new Comparator<Hero>() {
+            @Override
+            public int compare(Hero hero1, Hero hero2) {
+                return hero2.getAge() - (hero1.getAge());
+            }
+        };
+
+        heroes.sort(comparatorByAge);
 
         System.out.println("\nOrder by age:");
         showList(heroes);
